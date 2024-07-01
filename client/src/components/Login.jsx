@@ -82,58 +82,6 @@ const Login = () => {
   return (
     <div>
       {user ? (
-       <section className="gradient-bg-login flex justify-center items-center h-screen">
-       <div>
-         <Toaster toastOptions={{ duration: 4000 }} />
-         <div id='recaptcha-container'></div>
-         <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
-           <img src={logo3} alt="logo" className='mb-16' />
-           {showOTP ? (
-             <>
-               <div className='bg-white rounded-full mx-auto w-fit p-4'>
-                 <BsFillShieldLockFill size={30} />
-               </div>
-               <label htmlFor="otp" className='font-bold text-white text-xl text-center'>
-                 Enter Your OTP
-               </label>
-               <OtpInput
-                 value={otp}
-                 onChange={setOtp}
-                 OTPLength={6}
-                 otpType="number"
-                 disabled={false}
-                 autoFocus
-                 className="otp-container"
-               />
-               <button className='bg-[#6DA5C0] w-full flex gap-1 items-center justify-center py-2.5 text-white rounded hover:bg-[#86A8CF] duration-200' onClick={onOTPVerify}>
-                 {loading && <CgSpinner size={20} className='mt-1 animate-spin' />}
-                 <span>
-                   Verify OTP
-                 </span>
-               </button>
-             </>
-           ) : (
-             <>
-               <div className='bg-white rounded-full mx-auto w-fit p-4'>
-                 <BsTelephoneFill size={30} />
-               </div>
-               <label htmlFor="" className='font-bold text-white text-xl text-center'>
-                 Enter Name & Phone Number
-               </label>
-               <input type="text" className='rounded-md' placeholder='Enter Your Name' value={inputName} onChange={handleInputName} />
-               <PhoneInput country={"in"} value={ph} onChange={setPh} />
-               <button className='bg-[#6DA5C0] w-full flex gap-1 items-center justify-center py-2.5 text-white rounded hover:bg-[#86A8CF] duration-200' onClick={onSignUp}>
-                 {loading && <CgSpinner size={20} className='mt-1 animate-spin' />}
-                 <span>
-                   Send Code via SMS
-                 </span>
-               </button>
-             </>
-           )}
-         </div>
-       </div>
-     </section>
-      ) : (
         <>
         <div className="gradient-bg-welcome">
           <Navbar onLogout={handleLogout} />
@@ -151,7 +99,59 @@ const Login = () => {
         </div>
         <Footer />
       </>
-        
+      ) : (
+       
+        <section className="gradient-bg-login flex justify-center items-center h-screen">
+        <div>
+          <Toaster toastOptions={{ duration: 4000 }} />
+          <div id='recaptcha-container'></div>
+          <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
+            <img src={logo3} alt="logo" className='mb-16' />
+            {showOTP ? (
+              <>
+                <div className='bg-white rounded-full mx-auto w-fit p-4'>
+                  <BsFillShieldLockFill size={30} />
+                </div>
+                <label htmlFor="otp" className='font-bold text-white text-xl text-center'>
+                  Enter Your OTP
+                </label>
+                <OtpInput
+                  value={otp}
+                  onChange={setOtp}
+                  OTPLength={6}
+                  otpType="number"
+                  disabled={false}
+                  autoFocus
+                  className="otp-container"
+                />
+                <button className='bg-[#6DA5C0] w-full flex gap-1 items-center justify-center py-2.5 text-white rounded hover:bg-[#86A8CF] duration-200' onClick={onOTPVerify}>
+                  {loading && <CgSpinner size={20} className='mt-1 animate-spin' />}
+                  <span>
+                    Verify OTP
+                  </span>
+                </button>
+              </>
+            ) : (
+              <>
+                <div className='bg-white rounded-full mx-auto w-fit p-4'>
+                  <BsTelephoneFill size={30} />
+                </div>
+                <label htmlFor="" className='font-bold text-white text-xl text-center'>
+                  Enter Name & Phone Number
+                </label>
+                <input type="text" className='rounded-md' placeholder='Enter Your Name' value={inputName} onChange={handleInputName} />
+                <PhoneInput country={"in"} value={ph} onChange={setPh} />
+                <button className='bg-[#6DA5C0] w-full flex gap-1 items-center justify-center py-2.5 text-white rounded hover:bg-[#86A8CF] duration-200' onClick={onSignUp}>
+                  {loading && <CgSpinner size={20} className='mt-1 animate-spin' />}
+                  <span>
+                    Send Code via SMS
+                  </span>
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
       )}
     </div>
   );
