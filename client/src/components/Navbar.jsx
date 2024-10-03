@@ -20,7 +20,7 @@ const Navbar = ({ onLogout }) => {
   };
 
   return (
-    <nav className="w-full flex md:justify-center justify-between items-center p-4">
+    <nav className="w-full flex md:justify-center justify-between items-center p-4 ">
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
         <img src={logo3} alt="logo" className="w-32 cursor-pointer" />
       </div>
@@ -28,10 +28,10 @@ const Navbar = ({ onLogout }) => {
         {["Home", "Services", "Transaction History", "Market"].map((item, index) => (
           <NavBarItem key={item + index} title={item} to={item.toLowerCase().replace(/ /g, "")} />
         ))}
-        <NavBarItem
+        {/* <NavBarItem
           title="Logout"
           classprops="bg-[#6DA5C0] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#86A8CF]"
-          onClick={handleLogout} />
+          onClick={handleLogout} /> */}
           
       </ul>
       <div className="flex relative">
